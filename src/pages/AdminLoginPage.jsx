@@ -29,6 +29,9 @@ const AdminLoginPage = () => {
     //TODO
     let sdk = new MkdSDK();
     sdk.login(data.email, data.password, data.email === "adminreacttask@manaknight.com" ? data.role = "admin" : "")
+    dispatch({
+      type: "LOGIN",
+    })
   };
 
   return (

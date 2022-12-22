@@ -5,9 +5,9 @@ export const AuthContext = React.createContext();
 
 const initialState = {
   isAuthenticated: JSON.parse(localStorage.getItem('isAuthenticated')),
-  user: localStorage.getItem('email'),
-  token: localStorage.getItem('token'),
-  role: localStorage.getItem('role'),
+  user: localStorage.getItem('email') === "null" ? null : localStorage.getItem('email'),
+  token: localStorage.getItem('token') === "null" ? null : localStorage.getItem('token'),
+  role: localStorage.getItem('role') === "null" ? null : localStorage.getItem('role'),
 };
 
 console.log(initialState);
@@ -18,10 +18,10 @@ const reducer = (state, action) => {
       //TODO
       return {
         ...state,
-        isAuthenticated: true,
-        user: localStorage.getItem('email'),
-        token: localStorage.getItem('token'),
-        role: localStorage.getItem('role'),
+        isAuthenticated: JSON.parse(localStorage.getItem('isAuthenticated')),
+        user: localStorage.getItem('email') === "null" ? null : localStorage.getItem('email'),
+        token: localStorage.getItem('token') === "null" ? null : localStorage.getItem('token'),
+        role: localStorage.getItem('role') === "null" ? null : localStorage.getItem('role'),
       };
     case "LOGOUT":
       localStorage.clear();
@@ -41,7 +41,7 @@ export const tokenExpireError = (dispatch, errorMessage) => {
   const role = localStorage.getItem("role");
   if (errorMessage === "TOKEN_EXPIRED") {
     dispatch({
-      type: "Logout",
+      type: "LOGOUT",
     });
     window.location.href = "/" + role + "/login";
   }
