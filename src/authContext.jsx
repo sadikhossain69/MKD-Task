@@ -36,12 +36,16 @@ const reducer = (state, action) => {
 };
 
 let sdk = new MkdSDK();
-const c = (sdk.check(localStorage.getItem('role')))
 console.log(c)
 
 export const tokenExpireError = (dispatch, errorMessage) => {
+  const c = sdk.check(localStorage.getItem('role'))
   const role = localStorage.getItem("role");
-  if (errorMessage === "TOKEN_EXPIRED") {
+  if (c.message === "OK") {
+    alert("Your are a valid user")
+  }
+  else if (c.message === "TOKEN_EXPIRED") {
+    alert("You are not a valid user")
     dispatch({
       type: "LOGOUT",
     });
