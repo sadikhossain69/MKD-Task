@@ -34,7 +34,9 @@ const AdminLoginPage = () => {
     dispatch({
       type: "LOGIN",
     });
-     <SnackBar/>
+    if (data.email) {
+      <SnackBar />
+    }
     // if(sdk.check(localStorage.getItem('role'))){
     //   // navigate("/admin/dashboard");
     //   console.log(sdk.check(localStorage.getItem('role')))
