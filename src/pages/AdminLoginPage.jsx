@@ -26,9 +26,9 @@ const AdminLoginPage = () => {
   });
 
   const onSubmit = async (data) => {
-    let sdk = new MkdSDK();
-    console.log(sdk.login(data.email, data.password, data.email === "adminreacttask@manaknight.com" ? data.role = "admin" : ""));
     //TODO
+    let sdk = new MkdSDK();
+    sdk.login(data.email, data.password, data.email === "adminreacttask@manaknight.com" ? data.role = "admin" : "")
   };
 
   return (
