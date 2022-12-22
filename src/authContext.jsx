@@ -36,6 +36,8 @@ const reducer = (state, action) => {
 };
 
 let sdk = new MkdSDK();
+const c = (sdk.check(localStorage.getItem('role')))
+console.log(c)
 
 export const tokenExpireError = (dispatch, errorMessage) => {
   const role = localStorage.getItem("role");
