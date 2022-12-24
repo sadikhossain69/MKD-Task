@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 export const GlobalContext = React.createContext();
 
 const initialState = {
-  globalMessage: "Login Successful",
+  globalMessage: "Login Successful", 
   isOpen: true,
   path: "",
 };
